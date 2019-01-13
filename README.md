@@ -1,2 +1,8 @@
-# soen_c_exercise
-Learning c programs
+# Soen C Programing Practice
+* Learning c programs
+
+## Coder
+* Tae Joon Jeon
+
+## Tool
+* C  
