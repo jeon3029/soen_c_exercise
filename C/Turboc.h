@@ -12,8 +12,8 @@
 typedef enum { NOCURSOR, SOLIDCURSOR, NORMALCURSOR } CURSOR_TYPE;
 void clrscr();
 void gotoxy(int x, int y);
-int wherex();
-int wherey();
+//int wherex();
+//int wherey();
 void setcursortype(CURSOR_TYPE c);
 
 #define delay(n) Sleep(n)							// n/1000초만큼 시간 지연
@@ -26,20 +26,23 @@ void setcursortype(CURSOR_TYPE c);
 // 화면을 모두 지운다.
 void clrscr()
 {
-	system("cls");
+	system("clear");
 }
 
 // 커서를 x,y좌표로 이동시킨다.
 void gotoxy(int x, int y)
 {
-	COORD Cur;
-	Cur.X=x;
-	Cur.Y=y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),Cur);
+//	COORD Cur;
+//	Cur.X=x;
+//	Cur.Y=y;
+//	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),Cur);
+	//printf("\033[%d;%df",y,x);
+	//fflush(stdout);
+	printf("%c[%d;%df",0x1B,y,x);
 }
 
 // 커서의 x 좌표를 조사한다.
-int wherex()
+/*int wherex()
 {
 	CONSOLE_SCREEN_BUFFER_INFO BufInfo;
 
@@ -77,6 +80,6 @@ void setcursortype(CURSOR_TYPE c)
 	}
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE),&CurInfo);
 }
-
+*/
 #endif // TURBOC_PROTOTYPE_ONLY
 #endif // TURBOC_HEADER
